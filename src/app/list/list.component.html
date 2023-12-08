@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h1>Lista de Articulos</h1>
+
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (client of clients; track $index) {
+            <tr>
+              <td>{{ client.code }}</td>
+              <td>{{ client.description }}</td>
+              <td>{{ client.price }}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm me-3" (click)="selectArticle(client.code)">Mostrar</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteArticle(client.code)">Eliminar</button>
+              </td>
+            </tr>
+        }
+      </tbody>
+    </table>
+</div>
